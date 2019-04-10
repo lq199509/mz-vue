@@ -1,28 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <router-view></router-view>
+    <narbar :tabs="tabs"></narbar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import narbar from './components/narbar'
 export default {
   name: 'app',
+  data () {
+    return {
+      tabs: [
+        { name: '电影', href: '/films', icon: 'icon-films' },
+        { name: '影院', href: '/cinemas', icon: 'icon-cinemas' },
+        { name: '特惠', href: '/sales', icon: 'icon-sales' },
+        { name: '我的', href: '/center', icon: 'icon-center' }
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    narbar: narbar
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='less'>
+  @import './styles/base.less';
 </style>
