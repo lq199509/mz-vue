@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import Swiper from 'swiper'
+import 'swiper/dist/css/swiper.min.css'
 export default {
   data () {
     return {
@@ -21,16 +23,19 @@ export default {
   },
   props: {
     banners: {
-      type: Array   
+      type: Array
     }
   },
   updated () {
-    if(!this.swiper){
-      this.swiper = new Swiper('.swiper-container',{
-          loop: true,//连续轮播
-          pagination: {
-              el: '.swiper-pagination',
-          }
+    if (!this.swiper) {
+      this.swiper = new Swiper('.swiper-container', {
+        loop: true, // 无缝轮播
+        autoplay: 1000,
+        initialSlide: 2,
+        autoplayDisableOnInteraction: false,
+        pagination: {
+          el: '.swiper-pagination'
+        }
       })
     }
   }
@@ -50,7 +55,6 @@ export default {
     background: #fff;
     opacity: 1;
   }
-   
   .swiper-pagination-bullet-active {
     background: red;
   }
